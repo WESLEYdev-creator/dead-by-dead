@@ -1,40 +1,11 @@
-name: Build Dead By Dead APK
+name: Teste APK
 
 on:
   workflow_dispatch:
 
 jobs:
-  build:
+  teste:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Baixar código
-        uses: actions/checkout@v4
-
-      - name: Instalar Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
-
-      - name: Instalar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Instalar dependências
-        run: npm install
-
-      - name: Preparar Android
-        run: |
-          npm run setup
-          npx cap sync android
-
-      - name: Gerar APK
-        run: npm run apk
-
-      - name: Disponibilizar APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: Dead-By-Dead-APK
-          path: android/app/build/outputs/apk/**/*.apk
+      - name: Testar workflow
+        run: echo "Workflow reconhecido!"
