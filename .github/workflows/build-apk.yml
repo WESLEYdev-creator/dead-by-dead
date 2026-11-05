@@ -25,6 +25,11 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
+            - name: Preparar arquivos do jogo
+        run: |
+          mkdir -p www
+          cp index.html www/index.html
+
       - name: Preparar Android
         run: |
           npm run setup
